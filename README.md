@@ -1,5 +1,5 @@
 # 📦 API de Estoque - Containerização com Docker
-**Programa FAP - APONTI** | *Disciplina de DevOps / Faculdade*  
+**Programa FAP - APONTI** 
 *Atividade Prática:* Containerização de API (Metodologia: Sala de Aula Invertida)  
 
 
