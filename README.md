@@ -1,7 +1,7 @@
 # 📦 API de Estoque - Containerização com Docker
 **Programa FAP - APONTI** | *Disciplina de DevOps / Faculdade*  
-**Atividade Prática:** Containerização de API (Metodologia: Sala de Aula Invertida)  
-**Autor:** Vinícius Lacerda (`@vlacerda93`)
+*Atividade Prática:* Containerização de API (Metodologia: Sala de Aula Invertida)  
+
 
 ---
 
@@ -28,7 +28,7 @@ Pesquisar e explicar detalhadamente com palavras próprias a semântica das 6 in
 
 > 💡 *O relatório completo referente a esta pesquisa foi disponibilizado no arquivo [`Relatorio_Pesquisa_Docker.md`](./Relatorio_Pesquisa_Docker.md).*
 
-### 🛠️ Etapa 2: Mão na Massa (Containerização Prática)
+### 🛠️ Etapa 2:Containerização Prática
 1. Criar o arquivo `Dockerfile` na raiz do projeto `estoque-api` utilizando uma imagem oficial otimizada do Node.js (`node:18-alpine`).
 2. Mapear a porta de execução original do servidor (`3000`).
 3. Criar o arquivo `.dockerignore` para otimizar o build e evitar cópia de `node_modules` ou logs.
@@ -103,7 +103,4 @@ npm start
 #### 3. Testar a Aplicação
 Acesse: [http://localhost:3000](http://localhost:3000)
 
----
 
-## ✒️ Autor
-Desenvolvido por **Vinícius Lacerda** no âmbito do **Programa FAP - APONTI**.
