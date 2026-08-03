@@ -1,0 +1,102 @@
+===============================================================================
+               RESUMO ESTUDO DA ATIVIDADE - PROGRAMA FAP / APONTI
+         ATIVIDADE PRÁTICA: CONTAINERIZAÇÃO DE API COM DOCKER
+===============================================================================
+
+1. O QUE É A ATIVIDADE?
+-------------------------------------------------------------------------------
+Esta atividade é a continuação do laboratório de desenvolvimento da "API de Estoque"
+em Node.js/Express. O objetivo central é evoluir a arquitetura do projeto:
+substituir comandos imperativos/manuais de instalação na máquina hospedeira por
+uma abordagem moderna, declarativa e padronizada utilizando **Docker**.
+
+Com isso, a aplicação roda em um ambiente completamente isolado (container),
+garantindo que ela funcione da mesma forma em qualquer computador.
+
+
+2. O QUE O ALUNO DEVE ENTREGAR E EXPLICAR?
+-------------------------------------------------------------------------------
+A atividade exige duas partes fundamentais:
+
+PARTE 1: ETAPA DE PESQUISA (ENTREGÁVEL TEÓRICO)
+------------------------------------------------
+O aluno deve entender e explicar (em PDF, TXT ou Markdown) a função das 6
+instruções principais de um Dockerfile:
+
+  1. FROM:
+     Define a imagem base inicial (ex: node:18-alpine). É a "plataforma" de onde
+     o container parte, contendo o sistema operacional leve e o ambiente Node.js.
+
+  2. WORKDIR:
+     Define a pasta interna de trabalho dentro do container (ex: /app). Todos os
+     comandos seguintes serão executados dentro dessa pasta.
+
+  3. COPY:
+     Copia arquivos da máquina física (host) para dentro do container. Exemplo:
+     copia o `package.json` e o código-fonte para a pasta de trabalho interna.
+
+  4. RUN:
+     Executa comandos durante o tempo de CONSTRUÇÃO (build) da imagem. Usado para
+     instalar bibliotecas e dependências (ex: `RUN npm install`).
+
+  5. EXPOSE:
+     Documenta qual porta de rede a aplicação escuta no container (ex: 3000).
+
+  6. CMD:
+     Especifica o comando padrão executado quando o container INICIA (runtime).
+     Exemplo: `CMD ["npm", "start"]` para ligar o servidor Node.js.
+
+
+PARTE 2: ETAPA PRÁTICA ("MÃO NA MASSA")
+------------------------------------------------
+O aluno deve abrir o repositório `estoque-api` e garantir que o projeto possui:
+
+  a) Um arquivo `Dockerfile` bem estruturado na raiz da `estoque-api`.
+  b) Um arquivo `.dockerignore` para não incluir `node_modules` pesados ou logs.
+  c) Ajuste no `package.json` com o script `"start": "node server.js"`.
+  d) Uma rota de status acessível para validação (ex: GET /api/status).
+
+
+3. GUIA RÁPIDO DE COMANDOS PARA ESTUDAR E USAR NO TERMINAL
+-------------------------------------------------------------------------------
+O aluno precisa conhecer os seguintes comandos principais do Docker e Git:
+
+-- COMANDOS DO DOCKER --
+1. Construir a imagem Docker a partir do Dockerfile:
+   docker build -t estoque-api .
+
+2. Executar o container mapeando a porta 3000 do host para a 3000 do container:
+   docker run -d -p 3000:3000 --name estoque-api-container estoque-api
+
+3. Listar os containers que estão rodando na máquina:
+   docker ps
+
+4. Parar a execução do container:
+   docker stop estoque-api-container
+
+5. Remover o container parado:
+   docker rm estoque-api-container
+
+
+-- COMANDOS DO GIT (ENVIAR PARA O GITHUB) --
+1. Adicionar os novos arquivos alterados:
+   git add Dockerfile .dockerignore package.json Relatorio_Pesquisa_Docker.md README.md
+
+2. Criar o ponto de salvamento (commit):
+   git commit -m "feat: containerizacao da API com Docker e documentacao"
+
+3. Enviar as alterações para o repositório no GitHub:
+   git push origin main
+
+
+4. COMO TESTAR SE ESTÁ TUDO FUNCIONANDO?
+-------------------------------------------------------------------------------
+- Com o container rodando no Docker, abra o navegador em:
+  http://localhost:3000/api/status
+
+- Resposta esperada:
+  {"status": "API de Estoque rodando com sucesso!"}
+
+===============================================================================
+                     FIM DO RESUMO DE ESTUDOS - APONTI
+===============================================================================
